@@ -40,4 +40,5 @@ app.get("/", (_req: Request, res: Response) => {
 
 app.listen(PORT, () => {
   console.log(`Running a GraphQL API server at http://localhost:${PORT}/graphql`);
+  console.log(`Access RURU IDE at http://localhost:${PORT}`);
 });
