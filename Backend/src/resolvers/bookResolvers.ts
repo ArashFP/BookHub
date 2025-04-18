@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import Book from '../models/Book';
 
 export const bookResolvers = {
