@@ -7,6 +7,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { ruruHTML } from "ruru/server";
 import { authorResolvers } from "./src/resolvers/authorResolvers";
+import { userResolvers } from "./src/resolvers/userResolvers";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ const root = {
   ...helloResolver,
   ...bookResolvers,
   ...authorResolvers,
+  ...userResolvers,
 };
 
 const app = express();
