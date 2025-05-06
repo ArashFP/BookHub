@@ -1,0 +1,10 @@
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-16);
+}
+
+.title {
+  color: var(--primary-color);
+  font-size: 2rem;
+}
