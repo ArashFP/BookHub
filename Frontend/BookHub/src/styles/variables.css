@@ -1,0 +1,22 @@
+:root {
+  /* colors */
+  --primary-color: #2c2c54;
+  --secondary-color: #474787;
+  --background-dark: #aaabb8;
+  --background-light: #ececec;
+
+  /* border radius */
+  --rounded-sm: 4px;
+  --rounded-md: 8px;
+  --rounded-lg: 16px;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+}
