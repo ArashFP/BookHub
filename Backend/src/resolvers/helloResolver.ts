@@ -1,3 +1,3 @@
 export const helloResolver = {
- hello: () => "Hello world!"
+  hello: () => "Hello world!",
 };

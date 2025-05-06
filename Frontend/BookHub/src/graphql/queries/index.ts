@@ -1,7 +1,6 @@
-import { gql } from "@apollo/client"
+import { gql } from "@apollo/client";
 
-
-export const HELLO_QUERY = gql `
+export const HELLO_QUERY = gql`
   query {
     hello
   }
