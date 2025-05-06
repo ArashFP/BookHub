@@ -1,15 +1,13 @@
+import styles from "./RootLayout.module.css";
 import { Outlet } from "react-router-dom";
+import { Header } from "../../components/Header/Header";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 function RootLayout() {
   return (
-    <div>
-      <header>
-        <h1>BookHub</h1>
-        <nav>
-          <a href="/">Home</a> | <a href="/shop">Shop</a> |{" "}
-          <a href="/about">About</a>
-        </nav>
-      </header>
+    <div className={styles.rootDiv}>
+      <Navbar />
+      <Header title="BookHub" />
       <main>
         <Outlet />
       </main>
