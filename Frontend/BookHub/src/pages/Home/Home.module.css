@@ -1,0 +1,6 @@
+.homeWrapper {
+  display: flex;
+  margin: 0 auto;
+  width: 70%;
+  height: 50vh;
+}

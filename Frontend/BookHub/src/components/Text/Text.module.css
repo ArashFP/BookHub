@@ -1,0 +1,16 @@
+.textDiv {
+  background-color: var(--background-dark);
+  border-radius: var(--rounded-lg);
+}
+
+.title {
+  font-size: var(--spacing-16);
+  padding-left: var(--spacing-16);
+  color: var(--primary-color);
+}
+
+.description {
+  font-size: var(--spacing-12);
+  padding: 0 var(--spacing-16) var(--spacing-16) var(--spacing-16);
+  color: var(--secondary-color);
+}

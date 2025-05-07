@@ -1,9 +1,14 @@
 :root {
   /* colors */
-  --primary-color: #2c2c54;
+  /* --primary-color: #2c2c54;
   --secondary-color: #474787;
   --background-dark: #aaabb8;
-  --background-light: #ececec;
+  --background-light: #ececec; */
+
+  --primary-color: #ececec;
+  --secondary-color: #aaabb8;
+  --background-dark: #2c2c54;
+  --background-light: #474787;
 
   /* border radius */
   --rounded-sm: 4px;
