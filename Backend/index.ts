@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 import { ruruHTML } from "ruru/server";
 import { authorResolvers } from "./src/resolvers/authorResolvers";
 import { userResolvers } from "./src/resolvers/userResolvers";
+import { authResolvers } from "./src/resolvers/authResolver";
 
 dotenv.config();
 
@@ -25,12 +26,17 @@ const root = {
   ...bookResolvers,
   ...authorResolvers,
   ...userResolvers,
+  ...authResolvers,
 };
 
 const app = express();
 
-app.use(cors());
-
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 app.all(
   "/graphql",
   createHandler({
