@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useLogin } from "../../utils/authUtils";
+import Button from "../Button/Button";
 
-const SignIn = () => {
+const SignIn = ({ onClose }: SignInProps) => {
   const { handleLogin, loading, error } = useLogin();
   const {
     register,
@@ -13,7 +14,7 @@ const SignIn = () => {
     const result = await handleLogin(data);
 
     if (result.success) {
-      console.log("User signed in successfully!");
+      onClose();
     } else {
       console.error(result.error);
     }
@@ -41,9 +42,14 @@ const SignIn = () => {
         {errors.password && <p>{errors.password.message}</p>}
       </div>
 
-      <button type="submit" disabled={loading}>
+      <Button
+        type="submit"
+        onClick={() => {}}
+        variant="primary"
+        disabled={loading}
+      >
         {loading ? "Signing In..." : "Sign In"}
-      </button>
+      </Button>
 
       {error && <p>Error: {error.message}</p>}
     </form>
@@ -55,4 +61,8 @@ export default SignIn;
 interface SignInFormInputs {
   email: string;
   password: string;
+}
+
+interface SignInProps {
+  onClose: () => void;
 }
