@@ -8,7 +8,7 @@
 }
 
 .button.primary {
-  background-color: var(--background-light);
+  background-color: var(--background-color-light);
   color: var(--primary-color);
 }
 
@@ -18,11 +18,30 @@
 }
 
 .button.secondary {
-  background-color: var(--secondary-color);
-  color: var(--background-light);
+  background-color: var(--background-color-light);
+  color: var(--primary-color);
 }
 
 .button.secondary:hover {
   background-color: var(--secondary-color-hover);
   transform: scale(1.05);
+}
+
+.button.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  background-color: var(--background-color-light);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  padding: var(--spacing-4);
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0, 3s ease;
+}
+.button.close:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color-light);
 }
