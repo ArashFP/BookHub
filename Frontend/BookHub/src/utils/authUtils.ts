@@ -9,8 +9,10 @@ export const useLogin = () => {
     try {
       const response = await login({ variables: formData });
       const token = response.data.login.token;
+      const userId = response.data.login.user.id;
 
       localStorage.setItem("token", token);
+      localStorage.setItem("userId", userId);
 
       return { success: true, token, user: response.data.login.user };
     } catch (err) {
