@@ -24,4 +24,9 @@
   --spacing-24: 24px;
   --spacing-28: 28px;
   --spacing-32: 32px;
+
+  /* Font sizes */
+  --font-size-sm: 12px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
 }
