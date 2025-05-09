@@ -1,0 +1,28 @@
+.button {
+  padding: var(--spacing-4) var(--spacing-8);
+  border: solid 1px var(--secondary-color);
+  border-radius: var(--rounded-sm);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0, 3s ease;
+}
+
+.button.primary {
+  background-color: var(--background-light);
+  color: var(--primary-color);
+}
+
+.button.primary:hover {
+  background-color: var(--primary-color-hover);
+  transform: scale(1.05);
+}
+
+.button.secondary {
+  background-color: var(--secondary-color);
+  color: var(--background-light);
+}
+
+.button.secondary:hover {
+  background-color: var(--secondary-color-hover);
+  transform: scale(1.05);
+}
