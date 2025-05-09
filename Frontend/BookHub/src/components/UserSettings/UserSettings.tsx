@@ -8,6 +8,7 @@ import {
   GET_USER_QUERY,
   UPDATE_USER_MUTATION,
 } from "../../graphql/queries/userQueries";
+import { User } from "../../graphql/types/User";
 
 export const UserSettings = () => {
   const userId = localStorage.getItem("userId");
@@ -40,11 +41,7 @@ export const UserSettings = () => {
     }
   }, [data, setValue]);
 
-  const onSubmit = async (formData: {
-    username: string;
-    email: string;
-    password: string;
-  }) => {
+  const onSubmit = async (formData: User) => {
     try {
       await updateUser({
         variables: {
