@@ -1,0 +1,7 @@
+.shopWrapper {
+  display: flex;
+  margin: auto;
+  background-color: var(--background-dark);
+  width: 70%;
+  height: auto;
+}
