@@ -1,0 +1,4 @@
+.modalFooterButtons {
+  display: flex;
+  gap: var(--spacing-8);
+}
