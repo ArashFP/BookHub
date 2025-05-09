@@ -88,7 +88,7 @@ export const Navbar = () => {
       <Modal
         isOpen={isSettingsModalOpen}
         onClose={() => setSettingsModalIsopen(false)}
-        title="Settings"
+        title="Account information"
       >
         <UserSettings />
       </Modal>
