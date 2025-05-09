@@ -1,0 +1,30 @@
+.cardGroup {
+  margin: 16px auto;
+  padding: 16px;
+  max-width: 1200px;
+}
+
+.cardGroupHeader {
+  margin-bottom: 16px;
+}
+
+.cardGroupTitle {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.cardGroupDescription {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.cardGroupContent {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+}

@@ -1,0 +1,36 @@
+.card {
+  border: 1px solid var(--primary-color);
+  border-radius: var(--rounded-md);
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cardImage {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: var(--rounded-md);
+}
+
+.cardContent {
+  padding: var(--spacing-8);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.cardDescription {
+  margin-top: var(--spacing-8);
+  font-size: 0.875rem;
+  color: var(--secondary-color);
+}
