@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useLogin } from "../../utils/authUtils";
 import Button from "../Button/Button";
+import FormGroup from "../FormGroup/FormGroup";
 
 const SignIn = ({ onClose }: SignInProps) => {
   const { handleLogin, loading, error } = useLogin();
@@ -22,25 +23,23 @@ const SignIn = ({ onClose }: SignInProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="email">Email</label>
+      <FormGroup label="Email" id="email">
         <input
           id="email"
           type="email"
           {...register("email", { required: "Email is required" })}
         />
         {errors.email && <p>{errors.email.message}</p>}
-      </div>
+      </FormGroup>
 
-      <div>
-        <label htmlFor="password">Password</label>
+      <FormGroup label="Password" id="password">
         <input
           id="password"
           type="password"
           {...register("password", { required: "Password is required" })}
         />
         {errors.password && <p>{errors.password.message}</p>}
-      </div>
+      </FormGroup>
 
       <Button
         type="submit"
