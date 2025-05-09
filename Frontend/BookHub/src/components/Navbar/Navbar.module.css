@@ -8,3 +8,19 @@
   border-top: solid 1px var(--primary-color);
   color: var(--primary-color);
 }
+
+.navbar {
+  display: flex;
+  gap: 16px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.navbar a.activeLink {
+  text-decoration: underline;
+  font-weight: bold;
+  color: var(--secondary-color);
+}

@@ -4,6 +4,7 @@ import { isTokenExpired } from "../../utils/tokenUtils";
 import { Modal } from "../Modal/Modal";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";
+import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const token = localStorage.getItem("token");
@@ -21,8 +22,32 @@ export const Navbar = () => {
     <div className={styles.navbarContainer}>
       <div>
         <nav className={styles.navbar}>
-          <a href="/">Home</a> | <a href="/shop">Shop</a> |{" "}
-          <a href="/about">About</a>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? styles.activeLink : undefined
+            }
+          >
+            Home
+          </NavLink>{" "}
+          |{" "}
+          <NavLink
+            to="/shop"
+            className={({ isActive }) =>
+              isActive ? styles.activeLink : undefined
+            }
+          >
+            Shop
+          </NavLink>{" "}
+          |{" "}
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? styles.activeLink : undefined
+            }
+          >
+            About
+          </NavLink>
         </nav>
       </div>
       <div className={styles.authButtons}>
