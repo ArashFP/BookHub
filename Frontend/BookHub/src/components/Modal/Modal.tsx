@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Modal.module.css";
+import Button from "../Button/Button";
 
 export const Modal: React.FC<ModalProps> = ({
   isOpen,
@@ -14,9 +15,9 @@ export const Modal: React.FC<ModalProps> = ({
       <div className={styles.modalContent}>
         <div className={styles.modalHeader}>
           <h2>{title}</h2>
-          <button onClick={onClose} className={styles.closeButton}>
-            &times;
-          </button>
+          <Button onClick={onClose} variant="close" type="button">
+            x
+          </Button>
         </div>
         <div className={styles.modalBody}>{children}</div>
       </div>
