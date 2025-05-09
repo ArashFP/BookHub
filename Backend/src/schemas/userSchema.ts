@@ -14,4 +14,5 @@ export const userQueries = `
 
 export const userMutations = `
   createUser(username: String!, email: String!, password: String!): User
+  updateUser(id: String!, username: String!, email: String!, password: String!): User!
 `;

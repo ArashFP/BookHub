@@ -37,4 +37,27 @@ export const userResolvers = {
       throw new Error("Failed to create user");
     }
   },
+  updateUser: async ({
+    id,
+    username,
+    email,
+    password,
+  }: {
+    id: string;
+    username: string;
+    email: string;
+    password: string;
+  }) => {
+    try {
+      const user = await User.findByIdAndUpdate(
+        id,
+        { username, email, password },
+        { new: true }
+      );
+      return user;
+    } catch (error) {
+      console.error("Error updating user:", error);
+      throw new Error("Failed to update user");
+    }
+  },
 };
