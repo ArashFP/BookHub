@@ -6,6 +6,7 @@ export interface IBook extends Document {
   author: IAuthor;
   description?: string;
   publishedYear?: number;
+  imageURL?: string;
 }
 
 const BookSchema = new Schema({
@@ -13,6 +14,7 @@ const BookSchema = new Schema({
   author: { type: String, required: true },
   description: String,
   publishedYear: Number,
+  imageURL: String,
 });
 
 export default mongoose.model<IBook>("Book", BookSchema);

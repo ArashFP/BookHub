@@ -10,6 +10,7 @@ export const bookResolvers = {
         author: book.author,
         description: book.description,
         publishedYear: book.publishedYear,
+        imageURL: book.imageURL,
       }));
     } catch (error) {
       console.error("Error fetching books:", error);
@@ -28,6 +29,7 @@ export const bookResolvers = {
         author: book.author,
         description: book.description,
         publishedYear: book.publishedYear,
+        imageURL: book.imageURL,
       };
     } catch (error) {
       console.error("Error fetching book:", error);
@@ -40,14 +42,22 @@ export const bookResolvers = {
     author,
     description,
     publishedYear,
+    imageURL,
   }: {
     title: string;
     author: string;
     description?: string;
     publishedYear?: number;
+    imageURL?: string;
   }) => {
     try {
-      const book = new Book({ title, author, description, publishedYear });
+      const book = new Book({
+        title,
+        author,
+        description,
+        publishedYear,
+        imageURL,
+      });
       await book.save();
       console.log("book added", book);
 
@@ -57,6 +67,7 @@ export const bookResolvers = {
         author: book.author,
         description: book.description,
         publishedYear: book.publishedYear,
+        imageURL: book.imageURL,
       };
     } catch (error) {
       console.error("Error adding book:", error);
@@ -70,12 +81,14 @@ export const bookResolvers = {
     author,
     description,
     publishedYear,
+    imageURL,
   }: {
     id: string;
     title?: string;
     author?: string;
     description?: string;
     publishedYear?: number;
+    imageURL?: string;
   }) => {
     try {
       const updates: { [key: string]: any } = {};
@@ -83,6 +96,7 @@ export const bookResolvers = {
       if (author !== undefined) updates.author = author;
       if (description !== undefined) updates.description = description;
       if (publishedYear !== undefined) updates.publishedYear = publishedYear;
+      if (imageURL !== undefined) updates.imageURL = imageURL;
 
       const book = await Book.findByIdAndUpdate(id, updates, { new: true });
       if (!book) return null;
@@ -93,6 +107,7 @@ export const bookResolvers = {
         author: book.author,
         description: book.description,
         publishedYear: book.publishedYear,
+        imageURL: book.imageURL,
       };
     } catch (error) {
       console.error("Error updating book:", error);
@@ -107,6 +122,23 @@ export const bookResolvers = {
     } catch (error) {
       console.error("Error deleting book:", error);
       throw new Error("Failed to delete book");
+    }
+  },
+
+  booksByAuthor: async ({ author }: { author: string }) => {
+    try {
+      const books = await Book.find({ author });
+      return books.map((book) => ({
+        id: book.id.toString(),
+        title: book.title,
+        author: book.author,
+        description: book.description,
+        publishedYear: book.publishedYear,
+        imageURL: book.imageURL,
+      }));
+    } catch (error) {
+      console.error("Error fetching books by author:", error);
+      throw new Error("Failed to fetch books by author");
     }
   },
 };
