@@ -1,0 +1,23 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-8);
+}
+
+.label {
+  margin-bottom: var(--spacing-4);
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  padding: 0.5rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--rounded-sm);
+  font-size: var(--font-size-sm);
+}
+
+input:disabled {
+  background-color: var(--primary-color);
+}
