@@ -5,6 +5,10 @@ import { Modal } from "../Modal/Modal";
 import SignUp from "../SignUp/SignUp";
 import SignIn from "../SignIn/SignIn";
 import { NavLink } from "react-router-dom";
+import Button from "../Button/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { UserSettings } from "../UserSettings/UserSettings";
 
 export const Navbar = () => {
   const token = localStorage.getItem("token");
@@ -12,6 +16,7 @@ export const Navbar = () => {
 
   const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
   const [isSignInModalOpen, setSignInModalOpen] = useState(false);
+  const [isSettingsModalOpen, setSettingsModalIsopen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -19,46 +24,47 @@ export const Navbar = () => {
   };
 
   return (
-    <div className={styles.navbarContainer}>
-      <div>
-        <nav className={styles.navbar}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? styles.activeLink : undefined
-            }
-          >
-            Home
-          </NavLink>{" "}
-          |{" "}
-          <NavLink
-            to="/shop"
-            className={({ isActive }) =>
-              isActive ? styles.activeLink : undefined
-            }
-          >
-            Shop
-          </NavLink>{" "}
-          |{" "}
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              isActive ? styles.activeLink : undefined
-            }
-          >
-            About
-          </NavLink>
-        </nav>
-      </div>
-      <div className={styles.authButtons}>
+    <div className={styles.navbarWrapper}>
+      <nav className={styles.navbarContainer}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : undefined
+          }
+        >
+          Home
+        </NavLink>{" "}
+        |{" "}
+        <NavLink
+          to="/shop"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : undefined
+          }
+        >
+          Shop
+        </NavLink>{" "}
+        |{" "}
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : undefined
+          }
+        >
+          About
+        </NavLink>
+      </nav>
+      <div className={styles.authButtonsContainer}>
         {!isSignedIn ? (
           <>
-            <button onClick={() => setRegisterModalOpen(true)}>Register</button>
-            <button onClick={() => setSignInModalOpen(true)}>Sign In</button>
+            <Button onClick={() => setRegisterModalOpen(true)}>Register</Button>
+            <Button onClick={() => setSignInModalOpen(true)}>Sign In</Button>
           </>
         ) : (
           <>
-            <button onClick={handleLogout}>Log Out</button>
+            <Button onClick={handleLogout}>Log Out</Button>
+            <Button onClick={() => setSettingsModalIsopen(true)}>
+              <FontAwesomeIcon icon={faGear} />
+            </Button>
           </>
         )}
       </div>
@@ -76,7 +82,15 @@ export const Navbar = () => {
         onClose={() => setSignInModalOpen(false)}
         title="Sign In"
       >
-        <SignIn />
+        <SignIn onClose={() => setSignInModalOpen(false)} />
+      </Modal>
+
+      <Modal
+        isOpen={isSettingsModalOpen}
+        onClose={() => setSettingsModalIsopen(false)}
+        title="Settings"
+      >
+        <UserSettings />
       </Modal>
     </div>
   );
