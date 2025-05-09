@@ -7,8 +7,8 @@
 
   --primary-color: #ececec;
   --secondary-color: #aaabb8;
-  --background-dark: #2c2c54;
-  --background-light: #474787;
+  --background-color-dark: #2c2c54;
+  --background-color-light: #474787;
 
   /* border radius */
   --rounded-sm: 4px;

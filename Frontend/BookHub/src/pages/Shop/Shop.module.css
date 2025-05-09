@@ -1,7 +1,7 @@
 .shopWrapper {
   display: flex;
   margin: auto;
-  background-color: var(--background-dark);
+  background-color: var(--background-color-dark);
   width: 70%;
   height: auto;
   border-radius: var(--rounded-lg);

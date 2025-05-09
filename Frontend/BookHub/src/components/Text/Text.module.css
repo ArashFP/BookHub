@@ -1,5 +1,5 @@
 .textDiv {
-  background-color: var(--background-dark);
+  background-color: var(--background-color-dark);
   border-radius: var(--rounded-lg);
 }
 
