@@ -1,6 +1,7 @@
 .homeWrapper {
   display: flex;
-  margin: 0 auto;
+  margin: auto;
   width: 70%;
-  height: 50vh;
+  height: auto;
+  border-radius: var(--rounded-lg);
 }
