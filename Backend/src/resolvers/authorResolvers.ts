@@ -71,26 +71,29 @@ export const authorResolvers = {
       throw new Error("Failed to fetch author by name");
     }
   },
-
   addAuthor: async ({
     firstName,
     lastName,
     bio,
     birthYear,
     deathYear,
-    bookIds = [],
+    books = [],
   }: {
     firstName: string;
     lastName: string;
     bio?: string;
     birthYear?: number;
     deathYear?: number;
-    bookIds?: string[];
+    books?: string[];
   }) => {
     try {
-      const bookObjectIds = bookIds.map(
-        (id) => new mongoose.Types.ObjectId(id)
-      );
+      const bookObjectIds =
+        books?.map((id: string) => {
+          if (!mongoose.Types.ObjectId.isValid(id)) {
+            throw new Error(`Invalid book ID: ${id}`);
+          }
+          return new mongoose.Types.ObjectId(id);
+        }) || [];
 
       const author = new Author({
         firstName,
@@ -101,7 +104,7 @@ export const authorResolvers = {
         books: bookObjectIds,
       });
       await author.save();
-      console.log("author added", author);
+      console.log("Author added successfully:", author);
 
       return {
         id: author.id.toString(),
