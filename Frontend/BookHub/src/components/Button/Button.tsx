@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
 export default Button;
 
 interface ButtonProps {
-  onClick?: () => void;
+  onClick?: (event?: React.MouseEvent) => void;
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "close";
   type?: "button" | "submit" | "reset";
