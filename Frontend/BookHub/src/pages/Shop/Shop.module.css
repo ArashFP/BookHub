@@ -16,14 +16,6 @@
   color: var(--primary-color);
 }
 
-.searchSection {
-  margin-bottom: var(--spacing-24);
-}
-
-.searchForm {
-  width: 100%;
-}
-
 .formRow {
   display: flex;
   gap: var(--spacing-16);
@@ -32,12 +24,6 @@
 
 .formRow > div {
   flex: 1;
-}
-
-.buttonGroup {
-  display: flex;
-  gap: var(--spacing-12);
-  justify-content: center;
 }
 
 .loadingMessage {
@@ -52,15 +38,4 @@
 
 .bookDetailsModal p {
   margin-bottom: var(--spacing-8);
-}
-
-.bookDetailLabel {
-  color: var(--primary-color);
-  font-weight: 600;
-  margin-bottom: var(--spacing-2);
-}
-
-.bookDetailValue {
-  color: var(--text-color-dark);
-  line-height: 1.5;
 }
