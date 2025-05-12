@@ -1,33 +1,89 @@
+import { useState } from "react";
 import { useQuery } from "@apollo/client";
-import Card from "../../components/Card/Card";
-import CardGroup from "../../components/CardGroup/CardGroup";
-import styles from "./Shop.module.css";
-import { BOOKS_BY_AUTHOR_QUERY } from "../../graphql/queries/bookQueries";
+import { BookTable } from "../../components/Table/BookTable";
+import { GET_ALL_BOOKS_QUERY } from "../../graphql/queries/bookQueries";
 import { Book } from "../../graphql/types/Book";
+import styles from "./Shop.module.css";
+import { Modal } from "../../components/Modal/Modal";
 
 const Shop = () => {
-  const { data, loading, error } = useQuery(BOOKS_BY_AUTHOR_QUERY, {
-    variables: { author: "J.R.R. Tolkien" },
-  });
+  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  const { data: booksData, loading } = useQuery(GET_ALL_BOOKS_QUERY);
+
+  const handleSelectBook = (book: Book) => {
+    setSelectedBook(book);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <main className={styles.shopWrapper}>
-      <CardGroup
-        title="Store Favourites!"
-        description="Our shopper have great taste, the epic fantasy trilogy by J.R.R. Tolkien is our most sold series of books"
-      >
-        {data.booksByAuthor.map((book: Book) => (
-          <Card
-            key={book.title}
-            title={book.title}
-            description={book.description}
-            imageUrl={book.imageURL}
+      <h2 className={styles.shopTitle}>Book Shop</h2>
+
+      <section className={styles.resultsSection}>
+        {loading ? (
+          <div className={styles.loadingMessage}>Loading books...</div>
+        ) : (
+          <BookTable
+            books={booksData?.books || []}
+            onSelectBook={handleSelectBook}
           />
-        ))}
-      </CardGroup>
+        )}
+      </section>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title={selectedBook?.title || "Book Details"}
+      >
+        {selectedBook && (
+          <div className={styles.bookDetailsModal}>
+            <p className={styles.bookDetailRow}>
+              <span className={styles.bookDetailLabel}>Author: </span>
+              <span className={styles.bookDetailValue}>
+                {selectedBook.author}
+              </span>
+            </p>
+            {selectedBook.description && (
+              <p className={styles.bookDetailRow}>
+                <span className={styles.bookDetailLabel}>Description: </span>
+                <span className={styles.bookDetailValue}>
+                  {selectedBook.description}
+                </span>
+              </p>
+            )}
+            {selectedBook.publishedYear && (
+              <p className={styles.bookDetailRow}>
+                <span className={styles.bookDetailLabel}>Published: </span>
+                <span className={styles.bookDetailValue}>
+                  {selectedBook.publishedYear}
+                </span>
+              </p>
+            )}
+            {selectedBook.price && (
+              <p className={styles.bookDetailRow}>
+                <span className={styles.bookDetailLabel}>Price: </span>
+                <span className={styles.bookDetailValue}>
+                  ${selectedBook.price}
+                </span>
+              </p>
+            )}
+            {selectedBook.genre && Array.isArray(selectedBook.genre) && (
+              <p className={styles.bookDetailRow}>
+                <span className={styles.bookDetailLabel}>Genre: </span>
+                <span className={styles.bookDetailValue}>
+                  {selectedBook.genre.join(", ")}
+                </span>
+              </p>
+            )}
+          </div>
+        )}
+      </Modal>
     </main>
   );
 };
