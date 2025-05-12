@@ -90,7 +90,7 @@ export const BookTable: React.FC<BookTableProps> = ({
                 disabled={!isUserLoggedIn}
                 onClick={(e) => handleAddToCart(book, e)}
               >
-                {isUserLoggedIn ? "Order" : "Login to Order"}
+                {isUserLoggedIn ? "Add to cart" : "Login to Order"}
               </Button>
             </td>
           </tr>
