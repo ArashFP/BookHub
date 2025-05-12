@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import styles from "./OrderHistory.module.css";
 import { Book } from "../../graphql/types/Book";
 import { Order } from "../../graphql/types/Order";
+import { formatDate } from "../../utils/timeFormatter";
 
 export const OrderHistory: React.FC = () => {
   const userId = localStorage.getItem("userId");
@@ -56,11 +57,6 @@ export const OrderHistory: React.FC = () => {
     return allBooks.filter(
       (book: Book) => book.id && bookIds.includes(book.id)
     );
-  };
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString() + " " + date.toLocaleTimeString();
   };
 
   return (
