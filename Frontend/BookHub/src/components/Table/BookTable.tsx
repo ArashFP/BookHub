@@ -73,7 +73,7 @@ export const BookTable: React.FC<BookTableProps> = ({
                 : book.genre || "-"}
             </td>
             <td>${book.price || "N/A"}</td>
-            <td className={styles.actionButtons}>
+            <td className={styles.actionButtonsContainer}>
               <Button
                 variant="secondary"
                 onClick={(e) => {

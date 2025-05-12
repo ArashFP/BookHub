@@ -23,7 +23,7 @@ const Shop = () => {
 
   return (
     <main className={styles.shopWrapper}>
-      <h2 className={styles.shopTitle}>Book Shop</h2>
+      <h2 className={styles.shopTitle}>Library</h2>
 
       <section className={styles.resultsSection}>
         {loading ? (

@@ -35,21 +35,15 @@ tbody tr:hover {
   transition: background-color 0.2s ease;
 }
 
-.actionButtons {
-  display: flex;
-  justify-content: space-evenly;
+.actionButtonsContainer {
+  text-align: center;
 }
 
-.actionButton {
-  background-color: var(--background-color-dark);
-  color: var(--primary-color);
-  border: none;
-  padding: var(--spacing-4) var(--spacing-8);
-  border-radius: var(--rounded-sm);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+.actionButtonsContainer button:first-child {
+  margin-right: var(--spacing-8);
 }
 
-.actionButton:hover {
-  background-color: var(--background-color-light);
+.actionButtonsContainer button {
+  width: calc(50% - var(--spacing-4));
+  margin: 0;
 }
