@@ -7,9 +7,14 @@ import SignIn from "../SignIn/SignIn";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGear,
+  faCartShopping,
+  faHistory,
+} from "@fortawesome/free-solid-svg-icons";
 import { UserSettings } from "../UserSettings/UserSettings";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import OrderHistory from "../OrderHistory/OrderHistory";
 
 export const Navbar = () => {
   const token = localStorage.getItem("token");
@@ -19,6 +24,7 @@ export const Navbar = () => {
   const [isSignInModalOpen, setSignInModalOpen] = useState(false);
   const [isSettingsModalOpen, setSettingsModalIsopen] = useState(false);
   const [isCartModalOpen, setCartModalOpen] = useState(false);
+  const [isOrderHistoryModalOpen, setOrderHistoryModalOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -66,6 +72,9 @@ export const Navbar = () => {
           </>
         ) : (
           <>
+            <Button onClick={() => setOrderHistoryModalOpen(true)}>
+              <FontAwesomeIcon icon={faHistory} /> Orders
+            </Button>
             <Button onClick={handleLogout}>Log Out</Button>
             <Button onClick={() => setSettingsModalIsopen(true)}>
               <FontAwesomeIcon icon={faGear} />
@@ -104,6 +113,14 @@ export const Navbar = () => {
         title="Shopping Cart"
       >
         <ShoppingCart />
+      </Modal>
+
+      <Modal
+        isOpen={isOrderHistoryModalOpen}
+        onClose={() => setOrderHistoryModalOpen(false)}
+        title="Order History"
+      >
+        <OrderHistory />
       </Modal>
     </div>
   );
