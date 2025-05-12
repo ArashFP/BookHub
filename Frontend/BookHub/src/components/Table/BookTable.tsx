@@ -14,8 +14,16 @@ export const BookTable: React.FC<BookTableProps> = ({
   const { dispatch } = useCart();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsUserLoggedIn(token !== null && !isTokenExpired(token));
+    const checkLoginStatus = () => {
+      const token = localStorage.getItem("token");
+      setIsUserLoggedIn(token !== null && !isTokenExpired(token));
+    };
+
+    checkLoginStatus();
+
+    const intervalId = setInterval(checkLoginStatus, 1000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const handleBookClick = (book: Book) => {
