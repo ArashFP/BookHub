@@ -7,8 +7,9 @@ import SignIn from "../SignIn/SignIn";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { faGear, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { UserSettings } from "../UserSettings/UserSettings";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 export const Navbar = () => {
   const token = localStorage.getItem("token");
@@ -17,6 +18,7 @@ export const Navbar = () => {
   const [isRegisterModalOpen, setRegisterModalOpen] = useState(false);
   const [isSignInModalOpen, setSignInModalOpen] = useState(false);
   const [isSettingsModalOpen, setSettingsModalIsopen] = useState(false);
+  const [isCartModalOpen, setCartModalOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -54,6 +56,9 @@ export const Navbar = () => {
         </NavLink>
       </nav>
       <div className={styles.authButtonsContainer}>
+        <Button onClick={() => setCartModalOpen(true)}>
+          <FontAwesomeIcon icon={faCartShopping} />
+        </Button>
         {!isSignedIn ? (
           <>
             <Button onClick={() => setRegisterModalOpen(true)}>Register</Button>
@@ -91,6 +96,14 @@ export const Navbar = () => {
         title="Account information"
       >
         <UserSettings />
+      </Modal>
+
+      <Modal
+        isOpen={isCartModalOpen}
+        onClose={() => setCartModalOpen(false)}
+        title="Shopping Cart"
+      >
+        <ShoppingCart />
       </Modal>
     </div>
   );
