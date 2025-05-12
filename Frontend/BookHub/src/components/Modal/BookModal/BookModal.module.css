@@ -1,0 +1,16 @@
+.bookDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.detailRow {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.label {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-right: var(--spacing-4);
+}
