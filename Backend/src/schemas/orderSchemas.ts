@@ -10,6 +10,7 @@ export const orderTypes = `
 export const orderQueries = `
   orders: [Order]
   order(id: ID!): Order
+  userOrders(userId: ID!): [Order]
 `;
 
 export const orderMutations = `

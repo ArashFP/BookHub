@@ -21,6 +21,24 @@ export const orderResolvers = {
     }
   },
 
+  userOrders: async ({ userId }: { userId: string }) => {
+    try {
+      const user = await User.findById(userId);
+      if (!user) {
+        throw new Error("User not found");
+      }
+
+      const orders = await Order.find({
+        _id: { $in: user.orders },
+      }).sort({ orderDate: -1 });
+
+      return orders;
+    } catch (error) {
+      console.error("Error fetching user orders:", error);
+      throw new Error("Failed to fetch user orders");
+    }
+  },
+
   createOrder: async ({
     userId,
     books,
