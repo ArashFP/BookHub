@@ -1,0 +1,113 @@
+.orderHistoryContainer {
+  padding: var(--spacing-8);
+}
+
+.sectionTitle {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-16);
+  text-align: center;
+}
+
+.message {
+  text-align: center;
+  color: var(--secondary-color);
+  margin: var(--spacing-16) 0;
+}
+
+.error {
+  text-align: center;
+  color: red;
+  margin: var(--spacing-16) 0;
+}
+
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.orderItem {
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--rounded-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.selectedOrder {
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.orderSummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-12);
+  background-color: var(--background-color-dark);
+}
+
+.orderInfo {
+  flex: 1;
+}
+
+.orderInfo p {
+  margin: var(--spacing-4) 0;
+  color: var(--primary-color);
+}
+
+.orderDetails {
+  padding: var(--spacing-12);
+  background-color: var(--background-color-light);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.orderDetailsTitle {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-8);
+  font-size: 1rem;
+}
+
+.booksList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bookItem {
+  padding: var(--spacing-8) 0;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.bookItem:last-child {
+  border-bottom: none;
+}
+
+.bookTitle {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: var(--spacing-2) 0;
+}
+
+.bookAuthor {
+  color: var(--secondary-color);
+  font-style: italic;
+  margin: var(--spacing-2) 0;
+}
+
+.bookPrice {
+  font-weight: bold;
+  margin: var(--spacing-2) 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
