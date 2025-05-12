@@ -13,3 +13,18 @@ export const BOOKS_BY_AUTHOR_QUERY = gql`
     }
   }
 `;
+
+export const GET_ALL_BOOKS_QUERY = gql`
+  query GetAllBooks {
+    books {
+      id
+      title
+      author
+      description
+      publishedYear
+      imageURL
+      genre
+      price
+    }
+  }
+`;
