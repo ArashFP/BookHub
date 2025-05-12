@@ -59,8 +59,9 @@
 
 .orderDetails {
   padding: var(--spacing-12);
-  background-color: var(--background-color-light);
+  background-color: var(--background-color-dark);
   animation: fadeIn 0.3s ease-in-out;
+  border-top: 1px solid var(--secondary-color);
 }
 
 .orderDetailsTitle {
