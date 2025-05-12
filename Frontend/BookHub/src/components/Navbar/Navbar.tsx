@@ -119,6 +119,7 @@ export const Navbar = () => {
         isOpen={isOrderHistoryModalOpen}
         onClose={() => setOrderHistoryModalOpen(false)}
         title="Order History"
+        variantBodyColor="grayBodyContent"
       >
         <OrderHistory />
       </Modal>
