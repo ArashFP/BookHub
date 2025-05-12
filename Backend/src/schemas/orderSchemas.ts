@@ -13,7 +13,7 @@ export const orderQueries = `
 `;
 
 export const orderMutations = `
-  createOrder(books: [ID!]!, totalPrice: Float!): Order
+  createOrder(userId: ID!, books: [ID!]!, totalPrice: Float!): Order
   updateOrder(id: ID!, books: [ID!], totalPrice: Float): Order
   deleteOrder(id: ID!): Boolean
 `;
