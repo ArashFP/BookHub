@@ -7,8 +7,13 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   children,
+  variantBodyColor = "default",
 }) => {
   if (!isOpen) return null;
+
+  const bodyClassName = `${styles.modalBody} ${
+    styles[`modalBody${variantBodyColor}`] || ""
+  }`;
 
   return (
     <div className={styles.modalOverlay}>
@@ -19,7 +24,7 @@ export const Modal: React.FC<ModalProps> = ({
             x
           </Button>
         </div>
-        <div className={styles.modalBody}>{children}</div>
+        <div className={bodyClassName}>{children}</div>
       </div>
     </div>
   );
@@ -29,4 +34,5 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   children: React.ReactNode;
+  variantBodyColor?: "default" | "grayBodyContent";
 }

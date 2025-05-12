@@ -30,5 +30,8 @@
 
 .modalBody {
   font-size: var(--font-size-md);
+}
+
+.modalBodygrayBodyContent {
   color: var(--secondary-color);
 }
