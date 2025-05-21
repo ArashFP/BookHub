@@ -3,7 +3,7 @@ import Author from "../models/Author";
 import Book from "../models/Book";
 
 export const authorResolvers = {
-  findAllAuthors: async () => {
+  authors: async () => {
     try {
       const authors = await Author.find();
       return authors.map((author) => ({
